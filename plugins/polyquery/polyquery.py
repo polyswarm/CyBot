@@ -13,7 +13,7 @@ from polyswarm_api.result import PolyswarmSearchResults
 
 api_key = os.getenv("POLYSWARM_API_KEY")
 
-class MyEventLoopPolicy(asyncio.DefaultEventLoopPolicy):
+class ErrBotManyThreadsEventLoopPolicy(asyncio.DefaultEventLoopPolicy):
     def __init__(self) -> None:
         self.loop = asyncio.new_event_loop()
         def start_loop(loop):
@@ -42,7 +42,7 @@ class PolySwarmResultsParser(object):
 
 class PolyQuery(BotPlugin):
     def activate(self) -> None:
-        asyncio.set_event_loop_policy(MyEventLoopPolicy())
+        asyncio.set_event_loop_policy(ErrBotManyThreadsEventLoopPolicy())
         super().activate()
 
     @arg_botcmd('hash', type=str, template="hash_search")  # flags a command
@@ -55,11 +55,13 @@ class PolyQuery(BotPlugin):
 
         results_obj = PolyswarmSearchResults(r)
         latest_bounty_result = results_obj.get_latest_bounty_with_assertions()
+        if not latest_bounty_result:
+            return {"latest_bounty_result": latest_bounty_result, "hash": hash}
 
         assertions = latest_bounty_result.get_file_assertions()
 
         # todo weight who thinks what about the file
-        return {"latest_bounty_result": latest_bounty_result, "assertions": assertions, "defang_permalink": latest_bounty_result.permalink.replace("http", "hxxp")}
+        return {"latest_bounty_result": latest_bounty_result, "search_results": results_obj, "assertions": assertions, "defang_permalink": latest_bounty_result.permalink.replace("http", "hxxp")}
 
     @arg_botcmd('imphash', type=str)
     def poly_imphash(self, msg, imphash=None):

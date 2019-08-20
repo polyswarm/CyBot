@@ -1,3 +1,6 @@
+{% if not latest_bounty_result %}
+No entries found for hash {{ hash }}
+{% else %}
 PolySwarm Search results for {{hash}}:
 
 {{ assertions.malicious | length }} of {{ assertions | length }} reporting malicious
@@ -11,3 +14,4 @@ Reporting non-malicious: {% for assertion in assertions.non_malicious %}{{ asser
 {% endif %}
 
 More info at: {{ defang_permalink }} 
+{% endif %}
