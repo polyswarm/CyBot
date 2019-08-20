@@ -1,0 +1,1 @@
+git+https://github.com/polyswarm/polyswarm-api.git@feature/result-parse#egg=polyswarm-api
