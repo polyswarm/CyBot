@@ -1,1 +1,3 @@
-#git+https://github.com/polyswarm/polyswarm-api.git@feature/result-parse#egg=polyswarm-api
+git+https://github.com/polyswarm/polyswarm-api.git@feature/result-parse#egg=polyswarm-api
+pyminizip==0.2.4
+requests==2.20.1

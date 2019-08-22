@@ -3,7 +3,7 @@ Name = PolySwarmQuery
 Module = polyquery
 
 [Documentation]
-Description = This is a simple plugin that will query the PolySwarm decentralized threat detection marketplace. Get your API key at https://polyswarm.network
+Description = This plugin will query the PolySwarm decentralized threat detection marketplace. Get your API key at https://polyswarm.network and set it as the POLYSWARM_API_KEY variable
 
 [Python]
 Version = 3

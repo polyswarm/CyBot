@@ -1,4 +1,6 @@
-{% if not latest_bounty_result %}
+{% if error %}
+{{ error }}
+{% elif not latest_bounty_result %}
 No entries found for hash {{ hash }}
 {% else %}
 PolySwarm Search results for {{hash}}:
