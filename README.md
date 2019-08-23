@@ -9,7 +9,8 @@ We are excited to share with the world a chat bot that we affectionately call Cy
 # CyBot Plugins
 
  **== File commands ==**
- !poly search \<hash> - PolySwarm Query
+ 
+ !poly Use PolySwarm to scan a file, search for a hash, or work with malware samples (see !help) 
  !vt \<hash> - VirusTotal Query (ex: 57f222d8fbe0e290b4bf8eaa994ac641)  
  !hashid \<hash> - Identify a hash type (e.g. MD5, SHA1)  
 

@@ -170,5 +170,5 @@ class PolyQuery(BotPlugin):
         super().callback_message(message)
 
     @botcmd
-    def poly_scan(self, msg):
+    def poly_scan(self, *args, **kwargs):
         return "(Slack only) To scan a file in PolySwarm DM it to this bot."
